@@ -1,0 +1,5 @@
+pandas>=2.0
+
+# Standard library covers everything else (sqlite3, csv, unittest).
+# Tests run with `python -m unittest discover -s tests`, and are also
+# pytest-discoverable if you have pytest installed locally.
