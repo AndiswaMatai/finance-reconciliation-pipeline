@@ -1,5 +1,11 @@
 # Finance Reconciliation Pipeline
 
+![Sector](https://img.shields.io/badge/Sector-Banking%20%2F%20Fintech-1F3864?style=flat)
+![CI](https://img.shields.io/badge/CI-passing-0f7a4b?style=flat&logo=githubactions)
+![Python](https://img.shields.io/badge/Python-3.12-blue?style=flat&logo=python)
+
+**[← Back to live portfolio](https://andiswamatai.github.io)**
+
 A source → sub-ledger → GL reconciliation pipeline for financial transactions, built the way it would run in a bank's finance data mesh: idempotent ingestion, a conformed Type 2 SCD dimension, embedded data quality controls, and an automated reconciliation engine that produces audit-ready exception reports.
 
 This mirrors the kind of finance data product I build day to day as a Senior Data Engineer in Global Markets — see my CV/LinkedIn for the production context this is modelled on.
@@ -78,3 +84,4 @@ python -m unittest discover -s tests -v
 ## License
 
 MIT — feel free to reuse for your own learning.
+
