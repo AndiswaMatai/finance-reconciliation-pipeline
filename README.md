@@ -1,3 +1,70 @@
+finance-reconciliation-pipeline/
+│
+├── README.md
+├── requirements.txt
+├── run_pipeline.py   # (or src/run_pipeline.py if already exists)
+│
+├── src/
+│   ├── ingestion/
+│   │   ├── ingest.py                 # aligns with README
+│   │
+│   ├── transform/
+│   │   ├── transform.py              # bronze → silver → gold logic
+│   │
+│   ├── reconciliation/
+│   │   ├── reconcile.py             # source → subledger → GL logic
+│   │
+│   ├── data_quality/
+│   │   ├── data_quality.py          # DQ checks
+│   │
+│   ├── models/
+│   │   ├── scd2_dim_account.py      # THIS aligns with your README claim
+│   │
+│   ├── utils/
+│   │   ├── logging.py
+│   │   ├── config.py
+│
+├── sql/
+│   ├── scd2_dim_account.sql
+│   ├── reconciliation_queries.sql
+│
+├── tests/
+│   ├── test_pipeline.py
+│   ├── test_reconciliation.py
+│   ├── test_data_quality.py
+│
+├── data/
+│   ├── raw/
+│   ├── staging/
+│   ├── output/
+│
+├── cost_optimization/
+│   ├── cost_calculator.py
+│
+├── monitoring/
+│   ├── alert_rules.tf
+│   ├── kql_queries.md
+│
+├── terraform/
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│
+├── docs/
+│   ├── architecture.md
+│   ├── production_design.md
+│   ├── tradeoffs.md
+│
+├── .github/
+│   ├── workflows/
+│       ├── ci.yml
+│       ├── cd.yml
+│
+└── assets/
+    ├── system_architecture.png
+    ├── data_flow_diagram.png
+
+
 
 # 🏦 Finance Reconciliation Engine (Production-Style Data System)
 
