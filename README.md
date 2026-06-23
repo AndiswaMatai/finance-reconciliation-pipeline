@@ -1,16 +1,39 @@
 finance-reconciliation-engine/
 │
-├── src/                      # ALL APPLICATION CODE
-├── config/                   # ENV + YAML CONFIGS
-├── data/                     # LOCAL DEV DATA (ignored in prod)
-├── tests/                    # UNIT TESTS
-├── databricks/              # DATABRICKS DEPLOYMENT ASSETS
-├── infrastructure/          # TERRAFORM / CLOUD SETUP
-├── .github/                 # CI/CD PIPELINE
-├── docker/                  # 🐳 DOCKER SETUP (IMPORTANT CHANGE)
-├── scripts/                 # DATA GENERATORS / UTILITIES
+├── src/
+│   ├── common/
+│   ├── ingestion/
+│   ├── transformations/
+│   ├── reconciliation/
+│   ├── reporting/
+│   ├── incremental/
+│   └── orchestration/
 │
-├── Dockerfile              # (OPTION 2: root-level entry point)
+├── config/
+│   └── dev.yaml
+│
+├── data/
+│   ├── raw/
+│   ├── bronze/
+│   ├── silver/
+│   └── gold/
+│
+├── tests/
+│
+├── scripts/
+│   └── data_generator.py   ✅ (IMPORTANT)
+│
+├── databricks/
+│   ├── notebooks/
+│   └── jobs/
+│
+├── infrastructure/
+│   └── main.tf
+│
+├── .github/
+│   └── workflows/
+│
+├── Dockerfile              ✅ ROOT LEVEL (RECOMMENDED)
 ├── requirements.txt
 ├── README.md
 └── .gitignore
