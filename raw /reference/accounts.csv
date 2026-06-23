@@ -1,0 +1,5 @@
+| AccountNumber | CustomerName | AccountType | BranchCode |
+| ------------- | ------------ | ----------- | ---------- |
+| ACC100001     | John Smith   | Current     | BR001      |
+| ACC100002     | Sarah Jones  | Savings     | BR002      |
+| ACC100003     | David Brown  | Business    | BR005      |
