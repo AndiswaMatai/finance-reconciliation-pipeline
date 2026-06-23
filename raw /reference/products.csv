@@ -1,0 +1,7 @@
+| ProductCode | Product          |
+| ----------- | ---------------- |
+| FX          | Foreign Exchange |
+| EQ          | Equities         |
+| BND         | Bonds            |
+| MM          | Money Market     |
+| DER         | Derivatives      |
