@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  reconciliation-engine:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+
+    volumes:
+      - ../data:/app/data
+
+    command: python src/orchestration/pipeline.py
