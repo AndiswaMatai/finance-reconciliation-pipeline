@@ -1,0 +1,17 @@
+env: dev
+
+spark:
+  app_name: FinanceReconciliationEngine
+  master: local[*]
+
+paths:
+  raw:
+    cash: data/raw/cash.csv
+    rada: data/raw/rada.csv
+
+  bronze:
+    cash: data/bronze/cash
+    rada: data/bronze/rada
+
+  silver: data/silver
+  gold: data/gold
