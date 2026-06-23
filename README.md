@@ -1,148 +1,112 @@
-finance-reconciliation-engine/
-│
-├── src/
-│   ├── common/
-│   ├── ingestion/
-│   ├── transformations/
-│   ├── reconciliation/
-│   ├── reporting/
-│   ├── incremental/
-│   └── orchestration/
-│
-├── config/
-│   └── dev.yaml
-│
-├── data/
-│   ├── raw/
-│   ├── bronze/
-│   ├── silver/
-│   └── gold/
-│
-├── tests/
-│
-├── scripts/
-│   └── data_generator.py   ✅ (IMPORTANT)
-│
-├── databricks/
-│   ├── notebooks/
-│   └── jobs/
-│
-├── infrastructure/
-│   └── main.tf
-│
-├── .github/
-│   └── workflows/
-│
-├── Dockerfile              ✅ ROOT LEVEL (RECOMMENDED)
-├── requirements.txt
-├── README.md
-└── .gitignore
+# 🏦 Finance Reconciliation Engine (Spark + Databricks + Azure)
 
-
-
-# 🏦 Finance Reconciliation Engine (Production-Style Data System)
-
-A production-inspired data engineering system designed to reconcile financial datasets between Cash and RADA systems in a simulated banking environment.
-
-The system demonstrates how enterprise financial institutions detect mismatches, maintain data integrity, and produce reconciled reporting layers for downstream consumption.
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Spark](https://img.shields.io/badge/Apache%20Spark-3.5-orange)
+![Architecture](https://img.shields.io/badge/Architecture-Medallion-green)
+![Status](https://img.shields.io/badge/Status-Production%20Simulation-success)
 
 ---
 
-## 🎯 Business Problem
+## 🚀 Overview
 
-In financial institutions, transaction data is sourced from multiple systems that often:
+A production-style financial reconciliation engine built using **Apache Spark**, simulating how banks reconcile transactions between **Cash and RADA systems**.
 
-- Arrive at different times
-- Contain inconsistent formatting
-- Include duplicates or missing references
-- Require regulatory-level accuracy
-
-This leads to:
-- reconciliation breaks
-- manual investigation effort
-- delayed financial reporting
-- operational risk
+The system is designed using **Medallion Architecture (Bronze → Silver → Gold)** and demonstrates enterprise-grade data engineering practices including reconciliation logic, data quality validation, and cloud deployment design.
 
 ---
 
-## 🏗️ Architecture Overview
+## 🧠 Business Problem
 
-The system is built using a layered data engineering approach:
+Financial institutions often face:
 
-1. **Ingestion Layer**
-   - Loads raw Cash and RADA datasets
+- Mismatched transaction records across systems  
+- Delayed reconciliation cycles  
+- Manual exception handling  
+- Audit and compliance risks  
 
-2. **Standardisation Layer**
-   - Cleans and normalizes data
-   - Ensures consistent formats across systems
-
-3. **Key Construction Layer**
-   - Builds composite business keys
-   - Prepares data for deterministic matching
-
-4. **Reconciliation Engine**
-   - Performs record matching logic
-   - Classifies records into:
-     - Matched
-     - Unmatched
-     - New
-     - Cleared
-
-5. **Output Layer**
-   - Produces reporting-ready datasets
-   - Feeds Power BI dashboards or downstream systems
+This system solves these by automating reconciliation using scalable Spark pipelines.
 
 ---
 
-## 🧠 Core Engineering Logic
+## 🏗️ Architecture
 
-The system uses deterministic matching based on:
-
-- Account identifiers
-- Trade references
-- Settlement dates
-- Value attributes
-
-Reconciliation is performed by comparing:
-
-- Current dataset vs previous snapshot
-- Business key alignment
-- Field-level comparisons
+Bronze Layer → Raw ingestion (Cash + RADA)
+Silver Layer → Standardisation + Data Quality
+Reconciliation Engine → Matching logic (Spark)
+Gold Layer → KPIs + Reporting datasets
 
 ---
 
-## ⚙️ Production Considerations
+## ⚙️ Key Features
 
-This system is designed with enterprise patterns in mind:
+### 🔹 Data Engineering
+- Apache Spark distributed processing
+- SHA-256 deterministic business keys
+- Broadcast joins for performance optimisation
+- Incremental snapshot processing
 
-- Idempotent pipeline execution
-- Modular transformation layers
-- Separation of ingestion and processing logic
-- Extensible matching rules
-- Audit-friendly outputs
+### 🔹 Reconciliation Engine
+- Matched records
+- Unmatched records
+- New records detection
+- Field-level mismatch detection
+
+### 🔹 Data Quality
+- Null checks
+- Duplicate removal
+- Negative value detection
+- Schema enforcement
+
+### 🔹 Platform Engineering
+- Docker containerisation
+- CI/CD with GitHub Actions
+- Terraform infrastructure design (Azure-ready)
+- Databricks job orchestration
 
 ---
 
 ## 📊 Outputs
 
-- Matched transactions dataset
-- Unmatched exceptions dataset
-- Cleared records dataset
-- Power BI-ready reconciliation layer
+- Reconciled transaction dataset
+- Exception report (unmatched records)
+- KPI summary table
+- Gold-layer reporting dataset (Power BI ready)
 
 ---
 
-## 🛠️ Tech Stack
+## 🧱 Tech Stack
 
+- Apache Spark (PySpark)
 - Python
-- SQL
-- Data Engineering principles
-- Optional: Spark / Databricks concepts
-- GitHub Actions (CI simulation)
+- Delta Lake (design pattern)
+- Azure Data Lake (architecture design)
+- Databricks (deployment design)
+- Docker
+- GitHub Actions
+- Terraform
 
 ---
 
-## 🚀 How to Run
+## 📂 Project Structure
 
+finance-reconciliation-engine/
+│
+├── src/
+├── config/
+├── data/
+├── tests/
+├── scripts/
+├── databricks/
+├── infrastructure/
+├── Dockerfile
+└── README.md
+
+
+---
+
+## ▶️ How to Run
+
+### 1. Install dependencies
 ```bash
-python pipelines/orchestration_flow.py
+pip install -r requirements.txt
+
