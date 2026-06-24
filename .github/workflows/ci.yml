@@ -1,17 +1,39 @@
-env: dev
+# Finance Reconciliation Engine — Configuration
+# Referenced by all src/ modules and Databricks notebooks via dbutils.widgets
+# or spark.conf in production.
 
-spark:
-  app_name: FinanceReconciliationEngine
-  master: local[*]
+reconciliation:
+  # Matching keys — fields used to build the SHA-256 business key
+  matching_keys:
+    - account_number
+    - trade_reference
+    - settlement_date
+    - currency
+    - debit_credit
 
-paths:
-  raw:
-    cash: data/raw/cash.csv
-    rada: data/raw/rada.csv
+  # Amount tolerance: records within this threshold are considered matched
+  # despite minor FX rounding differences
+  amount_tolerance: 1.00   # ZAR equivalent
 
-  bronze:
-    cash: data/bronze/cash
-    rada: data/bronze/rada
+  # Snapshot comparison — how many days back to look for cleared records
+  snapshot_lookback_days: 5
 
-  silver: data/silver
-  gold: data/gold
+data_quality:
+  thresholds:
+    completeness: 0.98
+    duplicate_rate_max: 0.005
+    negative_amount_max: 0.0
+
+storage:
+  # Production: ADLS Gen2 paths on OneLake
+  # Local: relative paths for sample data
+  bronze_path: "abfss://bronze@{storage_account}.dfs.core.windows.net/reconciliation"
+  silver_path:  "abfss://silver@{storage_account}.dfs.core.windows.net/reconciliation"
+  gold_path:    "abfss://gold@{storage_account}.dfs.core.windows.net/reconciliation"
+  local_sample: "data/sample"
+
+delta:
+  # Delta Lake write options used consistently across all Gold MERGE statements
+  merge_schema: true
+  optimize_write: true
+  auto_compact: true
