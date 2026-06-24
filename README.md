@@ -28,6 +28,20 @@ This system solves these by automating reconciliation using scalable Spark pipel
 
 ---
 
+## 🎯 Solution Overview
+
+This platform addresses these challenges by implementing an automated, scalable reconciliation engine using Apache Spark.
+
+It ensures:
+
+- End-to-end transaction traceability across systems
+- Automated detection of mismatches and reconciliation breaks
+- Standardised data quality validation across all processing layers
+- Structured audit-ready outputs suitable for regulatory review
+- Scalable processing design aligned with modern cloud data platforms
+
+---
+
 ## 🏗️ Architecture
 
 Bronze Layer → Raw ingestion (Cash + RADA)
