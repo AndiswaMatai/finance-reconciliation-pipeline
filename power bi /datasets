@@ -1,0 +1,10 @@
+# datasets/export_gold.py
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.appName("ExportGold").getOrCreate()
+
+gold_kpi = spark.read.format("delta").load("delta/gold_kpi")
+exceptions = spark.read.format("delta").load("delta/unmatched")
+
+gold_kpi.toPandas().to_csv("powerbi/datasets/kpi_summary.csv", index=False)
+exceptions.toPandas().to_csv("powerbi/datasets/exception_report.csv", index=False)
