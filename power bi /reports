@@ -1,0 +1,6 @@
+# reports/publish.ps1
+$workspaceId = "<YourWorkspaceID>"
+$reportPath = "Finance_Reconciliation_Overview.pbix"
+
+Login-PowerBIServiceAccount
+New-PowerBIReport -Path $reportPath -WorkspaceId $workspaceId
