@@ -1,0 +1,8 @@
+# config/schema.py
+expected_schema = {
+    "account_id": "string",
+    "txn_id": "string",
+    "cash_amount": "double",
+    "rada_amount": "double",
+    "txn_date": "date"
+}
