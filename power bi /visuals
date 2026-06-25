@@ -1,0 +1,7 @@
+// visuals/reconciliation_status.json
+{
+  "visualType": "pieChart",
+  "title": "Reconciliation Status",
+  "dataFields": ["Matched", "Unmatched"],
+  "colors": { "Matched": "green", "Unmatched": "red" }
+}
