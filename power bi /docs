@@ -1,0 +1,13 @@
+# Finance Reconciliation Dashboard
+
+## Visuals
+- **Reconciliation Status Pie** → Matched vs Unmatched
+- **KPI Cards** → Totals and variances
+- **Trend Line** → Reconciliation cycles
+- **Exception Table** → Mismatch reasons
+- **Audit Log Matrix** → Pipeline lineage
+
+## DAX Measures
+- `MatchedRate` → % of reconciled transactions
+- `ExceptionFlag` → Binary flag for mismatches
+- `TotalVariance` → Cash vs RADA difference
