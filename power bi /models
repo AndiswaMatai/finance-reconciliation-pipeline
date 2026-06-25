@@ -1,0 +1,6 @@
+-- models/measures.dax
+MatchedRate = DIVIDE(SUM(KPI[matched_count]), SUM(KPI[matched_count]) + SUM(KPI[unmatched_count]), 0)
+
+ExceptionFlag = IF(Exceptions[mismatch_reason] <> BLANK(), 1, 0)
+
+TotalVariance = SUM(KPI[total_cash]) - SUM(KPI[total_rada])
