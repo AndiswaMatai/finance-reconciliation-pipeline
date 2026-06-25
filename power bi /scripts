@@ -1,0 +1,12 @@
+# scripts/refresh_dataset.py
+import requests
+
+workspace_id = "<workspace_id>"
+dataset_id = "<dataset_id>"
+token = "<access_token>"
+
+url = f"https://api.powerbi.com/v1.0/myorg/groups/{workspace_id}/datasets/{dataset_id}/refreshes"
+headers = {"Authorization": f"Bearer {token}"}
+
+response = requests.post(url, headers=headers)
+print("Refresh triggered:", response.status_code)
