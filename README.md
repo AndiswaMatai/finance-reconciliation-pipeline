@@ -91,6 +91,7 @@ This system solves these by automating reconciliation with scalable Spark pipeli
 ---
 
 ## 📂 Project Structure
+```
 finance-reconciliation-engine/
 ├── src/
 ├── config/
@@ -101,7 +102,7 @@ finance-reconciliation-engine/
 ├── infrastructure/
 ├── Dockerfile
 └── README.md
-
+```
 ---
 
 ## ▶️ How to Run
